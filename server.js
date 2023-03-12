@@ -44,7 +44,24 @@
 // })
 
 
-const http = require('http');
-const routes = require('./routes');
-const server = http.createServer(routes);
-server.listen(5000);
+//const http = require('http');
+
+//const routes = require('./routes');
+//const server = http.createServer(routes);
+const express = require('express');
+
+const app = express();//creating expresss app 
+
+app.use((req, res, next) => {
+    console.log('in the middleware');
+    next();
+});  //use helps to add middleware functions ,function will be executed for every incoming requests
+//next is another function ,will execute when we want to handle next middleware
+
+app.use((req, res, next) => {
+    res.send('{ key1: value }')
+    console.log('in the another middleware');
+});
+//const server = http.createServer(app);
+
+app.listen(2000);
