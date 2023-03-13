@@ -6,7 +6,7 @@ const fs = require('fs');
 
 router.post('/', (req, res, next) => {
     console.log('login sucessfully');
-    res.redirect('/login-success');
+    res.redirect('/login-success');  
 })
 router.get('/login-success', (req, res, next) => {
     const jsonData = fs.readFileSync('./backendProject/message.json')

@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const fs = require('fs');
+const fs = require('fs');  
 
 router.get('/login', (req, res, next) => {
     res.send(`<form onsubmit="localStorage.setItem('username',document.getElementById('userName').value)" action="/" method="post">
