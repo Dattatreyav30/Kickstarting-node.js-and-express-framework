@@ -1,0 +1,29 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "nodejs guide",
+  "main": "firstApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./backendProject/groupchat.js",
+    "start-server": "node ./backendProject/groupchat.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dattatreyav30/Kickstarting-node.js-and-express-framework.git"
+  },
+  "author": "dattathreya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dattatreyav30/Kickstarting-node.js-and-express-framework/issues"
+  },
+  "homepage": "https://github.com/Dattatreyav30/Kickstarting-node.js-and-express-framework#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "node-localstorage": "^2.2.1"
+  }
+}
