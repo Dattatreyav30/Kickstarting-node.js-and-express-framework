@@ -52,24 +52,23 @@ const express = require('express');
 
 const app = express();//creating expresss app 
 
+const adminRoute = require('./routes/admin');
+
+const shopRoute = require('./routes/shop');
+
 //use helps to add middleware functions ,function will be executed for every incoming requests
 //next is another function ,will execute when we want to handle next middleware
 
 const bodyParser = require('body-parser');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/add-product', (req, res, next) => {
-  //res.send('<h1>hello from express</h1>');
-  res.send('<form action="/product" method = "POST"><input type="text" name="title"><input type="text" name="size"><button type="submit">add product</button></form>');
-});
+app.use('/admin',adminRoute);
 
-app.post('/product',(req,res,next)=>{
-  console.log(req.body);
-  res.redirect('/');
+app.use('/shop',shopRoute);
+
+app.use((req,res,next)=>{
+  res.status(404).send('<h3>page not found</h3>')
 })
-app.use('/', (req, res, next) => {
-  //res.send('<h1>hello from express</h1>');
-  res.send('<h1>hi from express!</h1>');
-});
-//const server = http.createServer(app);
+
 app.listen(2000);
