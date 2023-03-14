@@ -48,6 +48,8 @@
 
 //const routes = require('./routes');
 //const server = http.createServer(routes);
+const path = require('path');
+
 const express = require('express');
 
 const app = express();//creating expresss app 
@@ -68,7 +70,7 @@ app.use('/admin',adminRoute);
 app.use('/shop',shopRoute);
 
 app.use((req,res,next)=>{
-  res.status(404).send('<h3>page not found</h3>')
+  res.status(404).sendFile(path.join(__dirname,'views','pagenotFound.html'));
 })
 
 app.listen(2000);
