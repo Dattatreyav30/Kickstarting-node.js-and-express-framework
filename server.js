@@ -58,6 +58,9 @@ const adminRoute = require('./routes/admin');
 
 const shopRoute = require('./routes/shop');
 
+const contactRoute = require('./routes/contact')
+
+const productControllers = require('./controllers/contact&404')
 //use helps to add middleware functions ,function will be executed for every incoming requests
 //next is another function ,will execute when we want to handle next middleware
 
@@ -65,12 +68,12 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/admin',adminRoute);
+app.use('/admin', adminRoute);
 
-app.use('/shop',shopRoute);
+app.use('/shop', shopRoute);
 
-app.use((req,res,next)=>{
-  res.status(404).sendFile(path.join(__dirname,'views','pagenotFound.html'));
-})
+app.use('/contact', contactRoute);
+
+app.use(productControllers.get404);
 
 app.listen(2000);
